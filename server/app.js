@@ -1,5 +1,5 @@
 import express from 'express';
-import connectDB from './database/main.js';
+import connectDB from '../configs/mongodb_config.js';
 import bodyParser from 'body-parser';
 
 const app = express();
