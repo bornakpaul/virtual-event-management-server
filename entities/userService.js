@@ -38,7 +38,7 @@ class UserService {
      async verifyToken(token) {
           const decodedToken = jwt.verify(token, process.env.SECRET_KEY);
           const user = await User.findById(decodedToken.userId);
-          return user.username;
+          return user;
      }
 
      async getAllUsers() {

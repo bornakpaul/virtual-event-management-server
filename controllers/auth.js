@@ -33,8 +33,14 @@ const login = async function(req, res, next){
 
 const getAllUsers = async function(req, res, next){
      try{
+          const userRole = req.role;
+          if(userRole === 'admin'){
           const users =  await UserService.getAllUsers();
           return res.status(200).json({users: users});
+          }else{
+          return res.status(404).json({message: 'You are not an admin. You have no access'});
+          }
+          
      }catch(err){
           console.log(err);
           return res.status(500).json({message: `Error encountered : ${err}`});
