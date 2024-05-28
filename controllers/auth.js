@@ -16,4 +16,19 @@ const register = async function(req, res, next){
      }
 }
 
-export { register };
+const login = async function(req, res, next){
+     const {username, password} = req.body;
+     try{
+          const loggedIn = await UserService.loginUser(username, password);
+          if(!loggedIn){
+               return res.status(404).json({message: `Couldn't login ${username}`});
+          }
+          console.log(loggedIn);
+          return res.status(200).json({message: `${username} was successfully loggedin`, tokken: loggedIn});
+     }catch(err){
+          console.log(err);
+          return res.status(500).json({message: `Error encountered : ${err}`});
+     }
+}
+
+export { register, login };

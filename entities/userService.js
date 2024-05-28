@@ -1,5 +1,6 @@
 import User from "../models/user.js";
 import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
 
 class UserService {
 
@@ -27,7 +28,10 @@ class UserService {
      async loginUser(username, password) {
           const user = await User.findOne({username: username});
 
-          const passwordMatch = await user.comparePassword(password); 
+          const passwordMatch = await user.comparePassword(password);
+
+          if(!passwordMatch) return;
+          return jwt.sign({userId: user._id, username: user.username, phone: user.phone},process.env.SECRET_KEY, {expiresIn: '2 days'});
      }
 }
 
