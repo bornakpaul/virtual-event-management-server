@@ -21,7 +21,7 @@ const login = async function(req, res, next){
      try{
           const loggedIn = await UserService.loginUser(username, password);
           if(!loggedIn){
-               return res.status(404).json({message: `Couldn't login ${username}`});
+               return res.status(404).json({message: 'Username or password is incorrect'});
           }
           console.log(loggedIn);
           return res.status(200).json({message: `${username} was successfully loggedin`, tokken: loggedIn});
