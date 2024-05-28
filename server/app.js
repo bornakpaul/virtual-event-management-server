@@ -2,6 +2,7 @@ import express from 'express';
 import connectDB from '../configs/mongodb_config.js';
 import bodyParser from 'body-parser';
 import authRoutes from '../routes/auth.js';
+import eventRoutes from '../routes/events.js';
 
 const app = express();
 // define the port - 3001
@@ -15,6 +16,7 @@ app.use(express.urlencoded({extended: true}));
 connectDB();
 
 app.use('/user', authRoutes);
+app.use('/event', eventRoutes);
 
 
 // listen to port
