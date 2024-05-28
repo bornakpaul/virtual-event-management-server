@@ -14,7 +14,7 @@ app.use(express.urlencoded({extended: true}));
 // connect db
 connectDB();
 
-app.use('/', authRoutes);
+app.use('/user', authRoutes);
 
 
 // listen to port

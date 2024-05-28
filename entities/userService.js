@@ -46,8 +46,10 @@ class UserService {
           return users;
      }
 
-     async updateUserRole(username){
+     async updateUserRole(username, role){
+          await User.findOneAndUpdate({username: username}, {role: role});
           const user = await User.findOne({username: username});
+          return user;
      }
 }
 

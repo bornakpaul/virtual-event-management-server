@@ -42,4 +42,15 @@ const getAllUsers = async function(req, res, next){
 
 }
 
-export { register, login, getAllUsers };
+const updateUserRole = async function(req, res, next){
+     const {username , role} = req.body;
+     try{
+          const updateUser = await UserService.updateUserRole(username, role);
+          return res.status(200).json({user: updateUser});
+     }catch(err){
+          console.log(err);
+          return res.status(500).json({message: `Error encountered : ${err}`});
+     }
+}
+
+export { register, login, getAllUsers, updateUserRole };
