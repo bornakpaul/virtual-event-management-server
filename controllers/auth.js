@@ -31,4 +31,15 @@ const login = async function(req, res, next){
      }
 }
 
-export { register, login };
+const getAllUsers = async function(req, res, next){
+     try{
+          const users =  await UserService.getAllUsers();
+          return res.status(200).json({users: users});
+     }catch(err){
+          console.log(err);
+          return res.status(500).json({message: `Error encountered : ${err}`});
+     }
+
+}
+
+export { register, login, getAllUsers };

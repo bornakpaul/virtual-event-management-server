@@ -1,5 +1,4 @@
-import jwt from 'jsonwebtoken';
-import User from '../models/user.js';
+import UserService from "../entities/userService.js";
 
 const authentication = async function(req, res, next) {
      const token = req.headers.authentication?.split(' ')[1];
@@ -9,14 +8,12 @@ const authentication = async function(req, res, next) {
      }
 
      try{
-          const decodedToken = jwt.verify(token, process.env.SECRET_KEY);
-          const user = await User.findById(decodedToken.userId);
-          req.username = user.username;
-          console.log(`check username: ${user.username}`);
+          req.username = await UserService.verifyToken(token);
+          console.log(`check username: ${req.username}`);
           next();
      }catch(err){
           res.status(401).json({message: `Token error ${e}`});
      }
 }
 
-export default authentication;
+export  { authentication };

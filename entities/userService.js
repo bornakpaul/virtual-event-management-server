@@ -17,6 +17,7 @@ class UserService {
           return await user.save();
      }
 
+     // find by username
      async findByUsername(username){
           return await User.findOne({username: username});
      }
@@ -32,6 +33,21 @@ class UserService {
 
           if(!passwordMatch) return;
           return jwt.sign({userId: user._id, username: user.username, phone: user.phone},process.env.SECRET_KEY, {expiresIn: '2 days'});
+     }
+
+     async verifyToken(token) {
+          const decodedToken = jwt.verify(token, process.env.SECRET_KEY);
+          const user = await User.findById(decodedToken.userId);
+          return user.username;
+     }
+
+     async getAllUsers() {
+          const users = await User.find();
+          return users;
+     }
+
+     async updateUserRole(username){
+          const user = await User.findOne({username: username});
      }
 }
 
