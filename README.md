@@ -1,6 +1,6 @@
-# Project Title
+# Event Management Server
 
-A nice project with a nice description
+Server side endpoints to manage virtual events 
 
 ---
 ## Requirements
@@ -45,35 +45,36 @@ If you need to update `npm`, you can make it using `npm`! Cool right? After runn
 
 ## Install
 
-    $ git clone https://github.com/YOUR_USERNAME/PROJECT_TITLE
-    $ cd PROJECT_TITLE
-    $ yarn install
+    $ git clone https://github.com/bornakpaul/virtual-event-management-server
+    $ cd virtual-event-management-server
+    $ npm install
 
 ## Configure app
 
 Open `a/nice/path/to/a.file` then edit it with your settings. You will need:
 
-- A setting;
-- Another setting;
-- One more setting;
+- create a dotenv file
+- set two variables : MONGODB_URI, SECRET_KEY
+- MONGODB_URI for mongodb connection
+- SECRET_KEY for setting up jwt
 
 ## Running the project
 
-    $ yarn start
+    $ npm run dev
 
 ## Simple build for production
 
-    $ yarn build
+    $ npm build
 
-## API ENDPOINTS
-     Authentication baseurl : http://localhost:3001/user
+# API ENDPOINTS
+     ## Registration and User Details baseurl : http://localhost:3001/user
      - Login : baseurl/login
      - Register : baseurl/register
      - Fetch all users list : baseurl/all
      - Update user role : baseurl/update
 
 
-     Events baseurl : http://localhost:3001/event
+     ## Events baseurl : http://localhost:3001/event
      - Create event : baseurl/create
      - Delete event : baseurl/delete
      - Fetch all events list : baseurl/
