@@ -33,6 +33,9 @@ class EventService {
           let registeredParticipants = event.participants;
 
           registeredParticipants.push(participantId);
+          // remove duplicate entries
+          const registeredParticipantsSetValue = new Set(registeredParticipants);
+          registeredParticipants = [...registeredParticipantsSetValue];
           await Events.findByIdAndUpdate(eventId, {participants: registeredParticipants});
 
           return await Events.findById(eventId);
