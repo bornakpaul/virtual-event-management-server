@@ -1,4 +1,4 @@
-import User from "../dto/user.js";
+import User from "../entities/user.js";
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 

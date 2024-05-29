@@ -1,4 +1,4 @@
-import Events from "../dto/event.js";
+import Events from "../entities/event.js";
 
 class EventService {
 
