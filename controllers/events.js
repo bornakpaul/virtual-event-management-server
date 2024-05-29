@@ -1,4 +1,4 @@
-import EventService from "../entities/eventService.js";
+import EventService from "../services/eventService.js";
 
 const createEvent = async function(req, res, next){
      const { date, time, title, description } = req.body;

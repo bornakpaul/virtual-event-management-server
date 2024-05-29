@@ -1,4 +1,4 @@
-import UserService from "../entities/userService.js";
+import UserService from "../services/userService.js";
 
 const authentication = async function(req, res, next) {
      const token = req.headers.authorization?.split(' ')[1];

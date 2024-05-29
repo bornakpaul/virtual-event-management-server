@@ -1,4 +1,4 @@
-import Events from "../models/event.js";
+import Events from "../dto/event.js";
 
 class EventService {
 

@@ -1,4 +1,4 @@
-import UserService from "../entities/userService.js";
+import UserService from "../services/userService.js";
 
 const register = async function(req, res, next){
      const {username, phone, password} = req.body;
