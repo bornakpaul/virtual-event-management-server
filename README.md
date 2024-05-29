@@ -67,14 +67,14 @@ Open `a/nice/path/to/a.file` then edit it with your settings. You will need:
     $ npm build
 
 # API ENDPOINTS
-     ## Registration and User Details baseurl : http://localhost:3001/user
+  ## Registration and User Details baseurl : http://localhost:3001/user
      - Login : baseurl/login
      - Register : baseurl/register
      - Fetch all users list : baseurl/all
      - Update user role : baseurl/update
 
 
-     ## Events baseurl : http://localhost:3001/event
+  ## Events baseurl : http://localhost:3001/event
      - Create event : baseurl/create
      - Delete event : baseurl/delete
      - Fetch all events list : baseurl/
